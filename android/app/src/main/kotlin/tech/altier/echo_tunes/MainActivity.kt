@@ -9,13 +9,11 @@ class MainActivity : FlutterActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         GeneratedPluginRegistrant.registerWith(flutterEngine)
 
-        // Set up method channel
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "your_channel_name")
             .setMethodCallHandler { call, result ->
                 if (call.method == "launchMusicPlayer") {
-                    // Handle the method call, e.g., launch the music player
                     launchMusicPlayer()
-                    result.success(null) // You can send a result back to Dart if needed
+                    result.success(null) 
                 } else {
                     result.notImplemented()
                 }
@@ -23,6 +21,6 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun launchMusicPlayer() {
-        // Implement the logic to launch the music player
+        // TODO Implement the logic to launch the music player
     }
 }
