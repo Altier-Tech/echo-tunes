@@ -24,6 +24,18 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        
+        <service
+            android:name=".ETVoiceInteractionService"
+            android:label="@string/voice_interaction_service">
+            <intent-filter>
+                <action android:name="android.service.voice.VoiceInteractionService" />
+                <meta-data
+                    android:name="android.voice_interactions"
+                    android:resource="@xml/voice_interaction" />
+            </intent-filter>
+        </service>
+
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
