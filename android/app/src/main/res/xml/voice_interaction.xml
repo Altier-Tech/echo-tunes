@@ -1,0 +1,4 @@
+<voice-interaction xmlns:android="http://schemas.android.com/apk/res/android">
+    <recognition-service 
+        android:settingsActivity="tech.altier.echo_tunes.YourSettingsActivity" /> <!-- TODO -->
+</voice-interaction>
