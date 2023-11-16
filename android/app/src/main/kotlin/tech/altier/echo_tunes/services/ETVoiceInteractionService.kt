@@ -1,3 +1,5 @@
 class ETVoiceInteractionService : VoiceInteractionService() {
-    // TODO Implement the necessary methods
+    override fun onNewSession(args: Bundle?): VoiceInteractionSession {
+        return ETVoiceInteractionSession(applicationContext)
+    }
 }
