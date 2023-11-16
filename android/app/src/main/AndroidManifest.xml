@@ -24,10 +24,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        
+
         <service
             android:name=".ETVoiceInteractionService"
-            android:label="@string/voice_interaction_service">
+            android:label="@string/voice_interaction_service"
+            android:exported="true or false">
             <intent-filter>
                 <action android:name="android.service.voice.VoiceInteractionService" />
                 <meta-data
