@@ -21,6 +21,14 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun launchMusicPlayer() {
-        // TODO Implement the logic to launch the music player
+        val packageName = "tech.altier.echo_tunes" 
+        val intent = packageManager.getLaunchIntentForPackage(packageName)
+    
+        if (intent != null) {
+            startActivity(intent)
+        } else {
+            // TODO: The music player app is not installed
+        }
     }
+    
 }
