@@ -11,10 +11,6 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
-            <!-- Specifies an Android theme to apply to this Activity as soon as
-                 the Android process has started. This theme is visible to the user
-                 while the Flutter UI initializes. After that, this theme continues
-                 to determine the Window background behind the Flutter UI. -->
             <meta-data
               android:name="io.flutter.embedding.android.NormalTheme"
               android:resource="@style/NormalTheme"
@@ -28,17 +24,15 @@
         <service
             android:name=".ETVoiceInteractionService"
             android:label="@string/voice_interaction_service"
-            android:exported="true or false">
+            android:exported="true"> <!-- replace "true" with "false" if this service is not intended to be used by other apps -->
             <intent-filter>
                 <action android:name="android.service.voice.VoiceInteractionService" />
-                <meta-data
-                    android:name="android.voice_interactions"
-                    android:resource="@xml/voice_interaction" />
             </intent-filter>
+            <meta-data
+                android:name="android.voice_interactions"
+                android:resource="@xml/voice_interaction" />
         </service>
 
-        <!-- Don't delete the meta-data below.
-             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
