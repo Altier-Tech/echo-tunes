@@ -155,7 +155,7 @@ def handle_voice_commands():
         command = recognize_speech()
         if command in play_commands:
             play_song()
-        elif command == 'pause song':
+        elif command in stop_commands:
             pause_song()
         elif command == 'next song':
             next_song()
