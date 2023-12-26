@@ -82,6 +82,9 @@ def play_song():
         status_label.config(text="Status: Playing")
 
 
+
+
+
 def next_song():
     current_selection = playlist.selection()
     if current_selection:  # if a song is selected
