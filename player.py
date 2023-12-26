@@ -30,8 +30,7 @@ songs = os.listdir(songs_dir)
 for song in songs:
     filename, extension = os.path.splitext(song)
     if extension == '.mp3':
-        song_path = os.path.join(songs_dir, song)
-        playlist.insert(END, song_path)
+        playlist.insert(END, filename)
 
 
 # Define player control functions
@@ -41,7 +40,8 @@ def play_song():
         song = playlist.get(current_selection[0])
     else:  # if no song is selected, default to the first song
         song = playlist.get(0)
-    pygame.mixer.music.load(song)
+    song_path = os.path.join(songs_dir, song + '.mp3')
+    pygame.mixer.music.load(song_path)
     pygame.mixer.music.play()
     status_label.config(text="Status: Playing")
 
