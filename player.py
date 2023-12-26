@@ -5,7 +5,7 @@ import pygame
 # Initialize Pygame and Tkinter
 pygame.mixer.init()
 root = tk.Tk()
-root.title("Music Player")
+root.title("Echo Tunes")
 
 # Create frames for playlist and controls
 playlist_frame = tk.Frame(root)
