@@ -111,10 +111,6 @@ prev_button.pack(side=tk.LEFT)
 status_label = tk.Label(root, text="Status: Idle")
 status_label.pack()
 
-volume_scale = tk.Scale(root, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume")
-volume_scale.set(50)  # Set default volume to 50%
-volume_scale.pack()
-
 
 # Function to recognize speech
 def recognize_speech():
