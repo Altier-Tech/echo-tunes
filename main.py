@@ -1,5 +1,8 @@
 import os
 
+from voice import recognize_speech
+
+
 # Function to launch script
 def launch_script():
     os.system('python player.py')
