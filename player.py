@@ -123,7 +123,25 @@ def recognize_speech():
             return ""
 
 
+def on_exit():
+    # Stop the song if it's playing
+    pygame.mixer.music.stop()
 
+    # Stop the voice command listening thread
+    if voice_thread.is_alive():
+        # Set a flag that will cause the thread to exit
+        # Note: You'll need to check this flag in your `handle_voice_commands` function
+        global exit_flag
+        exit_flag = True
+
+    # Destroy the tkinter window
+    root.destroy()
+
+# Set the flag to False initially
+exit_flag = False
+
+# Bind the exit function to the window close button
+root.protocol("WM_DELETE_WINDOW", on_exit)
 
 
 # Function to handle voice commands
