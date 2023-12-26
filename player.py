@@ -17,16 +17,24 @@ root.title("Echo Tunes")
 root.geometry('720x480')
 root.configure(bg='#7E84F7')
 
+# Create title label
+title_label = tk.Label(root, text="Echo Tunes", bg='#7E84F7', font=("Helvetica", 16))
+title_label.place(x=0, y=10, width=720, height=50)
+
 # Create frames for playlist and controls
 playlist_frame = tk.Frame(root, bg='#7E84F7')
-playlist_frame.pack(pady=20)
+playlist_frame.place(x=60, y=85, width=590, height=225)
 
 control_frame = tk.Frame(root, bg='#7E84F7')
-control_frame.pack()
+control_frame.place(x=60, y=310, width=590, height=100)
 
 # Create playlist listbox
 playlist = tk.Listbox(playlist_frame, selectmode=tk.SINGLE, bg='#7E84F7')
-playlist.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+playlist.pack(fill=tk.BOTH, expand=True)
+
+# Create status label and volume control
+status_label = tk.Label(root, text="Status: Idle", bg='#7E84F7')
+status_label.place(x=0, y=460, width=720, height=20)
 
 # Add songs to playlist
 songs_dir = 'songs'  # replace with your songs directory
@@ -106,14 +114,10 @@ pause_button.pack(side=tk.LEFT)
 next_button = tk.Button(control_frame, text="Next", command=next_song, bg='#7E84F7')
 next_button.pack(side=tk.LEFT)
 
-# Create status label and volume control
-status_label = tk.Label(root, text="Status: Idle", bg='#7E84F7')
-status_label.pack()
-
 # Modify volume_scale to call set_volume when the scale is moved
-volume_scale = tk.Scale(root, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume", command=set_volume, bg='#7E84F7')
+volume_scale = tk.Scale(control_frame, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume", command=set_volume, bg='#7E84F7')
 volume_scale.set(50)  # Set default volume to 50%
-volume_scale.pack()
+volume_scale.pack(side=tk.RIGHT)
 
 
 # Function to recognize speech
@@ -122,6 +126,7 @@ def recognize_speech():
         audio = r.listen(source)
         try:
             text = r.recognize_google(audio)
+            print(text)
             return text.lower()
         except:
             return ""
