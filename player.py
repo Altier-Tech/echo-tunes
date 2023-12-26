@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 from tkinter import END
 import pygame
@@ -18,10 +19,12 @@ control_frame.pack()
 playlist = tk.Listbox(playlist_frame, selectmode=tk.SINGLE)
 playlist.pack(fill=tk.BOTH, expand=True)
 
-# Add songs to playlist (replace with your song paths)
-playlist.insert(END, "path/to/song1.mp3")
-playlist.insert(END, "path/to/song2.mp3")
-playlist.insert(END, "path/to/song3.mp3")
+# Add songs to playlist
+songs_dir = 'songs'  # replace with your songs directory
+songs = os.listdir(songs_dir)
+for song in songs:
+    song_path = os.path.join(songs_dir, song)
+    playlist.insert(END, song_path)
 
 
 # Define player control functions
