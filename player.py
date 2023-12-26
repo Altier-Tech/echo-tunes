@@ -49,14 +49,22 @@ def stop_song():
     status_label.config(text="Status: Stopped")
 
 def next_song():
-    current_index = playlist.curselection()[0]
+    current_selection = playlist.curselection()
+    if current_selection:  # if a song is selected
+        current_index = current_selection[0]
+    else:  # if no song is selected, default to the first song
+        current_index = 0
     next_index = current_index + 1 if current_index + 1 < playlist.size() else 0
     playlist.select_clear(current_index)
     playlist.select_set(next_index)
     play_song()
 
 def previous_song():
-    current_index = playlist.curselection()[0]
+    current_selection = playlist.curselection()
+    if current_selection:  # if a song is selected
+        current_index = current_selection[0]
+    else:  # if no song is selected, default to the first song
+        current_index = 0
     prev_index = current_index - 1 if current_index > 0 else playlist.size() - 1
     playlist.select_clear(current_index)
     playlist.select_set(prev_index)
