@@ -2,7 +2,7 @@ songs_dict = {}
 
 
 def add_song(title: str, index: int):
-    songs_dict[title] = index
+    songs_dict[title.lower()] = index-1
 
 
 def search_song(search_term):
@@ -16,6 +16,7 @@ def search_song(search_term):
     print(songs_dict)
 
     for song in songs_dict.keys():
+        print(song + " <> ", search_term_words)
         song_words = song.split(" ")
         song_words = [word for word in song_words if word != "the"]
 
