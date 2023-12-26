@@ -27,4 +27,4 @@ control and efficient audio searching, ultimately enhancing user satisfaction.
 - Speech recognition libraries such as CMU Sphinx for voice recognition.
 - Integration with a music player application.
 - Development of a custom audio search algorithm.
- User interface design using a Tkinter
+- User interface design using a Tkinter
