@@ -80,7 +80,15 @@ def previous_song():
     play_song()
 
 
+# Define volume control function
+def set_volume(val):
+    volume = int(val) / 100  # we need to normalize our value to be between 0 and 1
+    pygame.mixer.music.set_volume(volume)
 
+# Modify volume_scale to call set_volume when the scale is moved
+volume_scale = tk.Scale(root, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume", command=set_volume)
+volume_scale.set(50)  # Set default volume to 50%
+volume_scale.pack()
 
 
 # Create control buttons
