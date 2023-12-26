@@ -1,10 +1,9 @@
 import os
+import threading
 import tkinter as tk
 from tkinter import END
-import pygame
-import speech_recognition as sr
-import threading
 
+import pygame
 
 # Initialize Pygame and Tkinter
 pygame.mixer.init()
