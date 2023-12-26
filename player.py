@@ -2,6 +2,7 @@ import os
 import tkinter as tk
 from tkinter import END
 import pygame
+import speech_recognition as sr
 
 # Initialize Pygame and Tkinter
 pygame.mixer.init()
