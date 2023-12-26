@@ -38,6 +38,7 @@ playlist.heading('#1', text='#')
 playlist.heading('#2', text='Song')
 playlist.heading('#3', text='Artist')
 playlist.heading('#4', text='Album')
+playlist.column('#1', width=40)  # Adjust the width as needed
 playlist.pack(fill=tk.BOTH, expand=True)
 
 # Create status label and volume control
@@ -47,7 +48,7 @@ status_label.place(x=0, y=460, width=720, height=20)
 # Add songs to playlist
 songs_dir = 'songs'  # replace with your songs directory
 songs = os.listdir(songs_dir)
-for i, song in enumerate(songs, start=1):
+for i, song in enumerate(songs, start=0):
     filename, extension = os.path.splitext(song)
     if extension == '.mp3':
         try:
