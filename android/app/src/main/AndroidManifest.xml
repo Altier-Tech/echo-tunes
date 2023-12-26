@@ -24,7 +24,7 @@
         <service
             android:name=".ETVoiceInteractionService"
             android:label="@string/voice_interaction_service"
-            android:exported="true"> <!-- replace "true" with "false" if this service is not intended to be used by other apps -->
+            android:exported="false"> <!-- replace "true" with "false" if this service is not intended to be used by other apps -->
             <intent-filter>
                 <action android:name="android.service.voice.VoiceInteractionService" />
             </intent-filter>
