@@ -83,11 +83,6 @@ def play_song():
 
 
 def play_by_index(index):
-    global is_paused  # to access the global variable
-    if is_paused:  # If the song is paused
-        pygame.mixer.music.unpause()  # Unpause the song
-        status_label.config(text="Status: Playing")
-        is_paused = False  # Update the is_paused status
     else:
         song = playlist.item(playlist.get_children()[index])['values'][1]
         song_path = os.path.join(songs_dir, song + '.mp3')
