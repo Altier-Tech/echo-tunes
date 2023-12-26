@@ -157,7 +157,7 @@ def handle_voice_commands():
             play_song()
         elif command in stop_commands:
             pause_song()
-        elif command == 'next song':
+        elif command in next_song_commands:
             next_song()
         elif command == 'previous song':
             previous_song()
