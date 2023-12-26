@@ -7,6 +7,7 @@ import speech_recognition as sr
 # Initialize speech recognizer
 r = sr.Recognizer()
 
+
 # Function to recognize speech
 def recognize_speech():
     with sr.Microphone() as source:
@@ -19,6 +20,7 @@ def recognize_speech():
         except:
             print("Sorry, I did not get that")
             return ""
+
 
 # Initialize Pygame and Tkinter
 pygame.mixer.init()
