@@ -1,11 +1,6 @@
 import os
 import speech_recognition as sr
 
-# Initialize recognizer
-r = sr.Recognizer()
-
-
-
 
 # Function to launch script
 def launch_script():
