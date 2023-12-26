@@ -28,6 +28,7 @@ for song in songs:
         song_path = os.path.join(songs_dir, song)
         playlist.insert(END, song_path)
 
+
 # Define player control functions
 def play_song():
     global current_song
@@ -45,6 +46,7 @@ def pause_song():
 def stop_song():
     pygame.mixer.music.stop()
     status_label.config(text="Status: Stopped")
+
 
 # Create control buttons
 play_button = tk.Button(control_frame, text="Play", command=play_song)
