@@ -23,23 +23,23 @@ root.geometry('720x480')
 # root.configure(bg='#7E84F7')
 
 # Create title label
-title_label = customtkinter.CTkLabel(root, text="Echo Tunes", font=("Helvetica", 16))
-title_label.place(x=0, y=10, width=720, height=50)
+title_label = customtkinter.CTkLabel(root, text="Echo Tunes", font=("Helvetica", 16), width=720, height=50)
+title_label.place(x=0, y=10)
 
 # Create frames for playlist and controls
-playlist_frame = tk.Frame(root)
-playlist_frame.place(x=60, y=85, width=590, height=225)
+playlist_frame = customtkinter.CTkFrame(root, width=590, height=225)
+playlist_frame.place(x=60, y=85)
 
-control_frame = tk.Frame(root)
-control_frame.place(x=60, y=310, width=590, height=100)
+control_frame = customtkinter.CTkFrame(root, width=590, height=100)
+control_frame.place(x=60, y=310)
 
 # Create playlist listbox
 playlist = tk.Listbox(playlist_frame, selectmode=tk.SINGLE)
 playlist.pack(fill=tk.BOTH, expand=True)
 
 # Create status label and volume control
-status_label = customtkinter.CTkLabel(root, text="Status: Idle")
-status_label.place(x=0, y=460, width=720, height=20)
+status_label = customtkinter.CTkLabel(root, text="Status: Idle", width=100, height=30)
+status_label.place(x=0, y=460)
 
 # Add songs to playlist
 songs_dir = 'songs'  # replace with your songs directory
@@ -104,19 +104,19 @@ def set_volume(val):
 
 
 # Create control buttons
-prev_button = tk.Button(control_frame, text="Previous", command=previous_song)
+prev_button = customtkinter.CTkButton(control_frame, text="Previous", command=previous_song)
 prev_button.pack(side=tk.LEFT)
 
-stop_button = tk.Button(control_frame, text="Stop", command=stop_song)
+stop_button = customtkinter.CTkButton(control_frame, text="Stop", command=stop_song)
 stop_button.pack(side=tk.LEFT)
 
-play_button = tk.Button(control_frame, text="Play", command=play_song)
+play_button = customtkinter.CTkButton(control_frame, text="Play", command=play_song)
 play_button.pack(side=tk.LEFT)
 
-pause_button = tk.Button(control_frame, text="Pause", command=pause_song)
+pause_button = customtkinter.CTkButton(control_frame, text="Pause", command=pause_song)
 pause_button.pack(side=tk.LEFT)
 
-next_button = tk.Button(control_frame, text="Next", command=next_song)
+next_button = customtkinter.CTkButton(control_frame, text="Next", command=next_song)
 next_button.pack(side=tk.LEFT)
 
 # Modify volume_scale to call set_volume when the scale is moved
