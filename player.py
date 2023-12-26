@@ -6,6 +6,7 @@ from tkinter import END
 
 import pygame
 
+from static import play_commands
 from voice import recognize_speech
 
 # Initialize Pygame and Tkinter
