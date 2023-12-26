@@ -5,8 +5,6 @@ import pygame
 import speech_recognition as sr
 import threading
 
-# Initialize speech recognizer
-r = sr.Recognizer()
 
 # Initialize Pygame and Tkinter
 pygame.mixer.init()
