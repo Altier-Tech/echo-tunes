@@ -6,7 +6,7 @@ from tkinter import ttk
 import eyed3
 import pygame
 
-from search import add_song
+from search import add_song, search_song
 from static import *
 from voice import recognize_speech
 
@@ -206,7 +206,7 @@ def handle_voice_commands():
             volume_scale.set(new_volume)
         elif command.split(" ")[0] == "play" and command.split(" ")[1] == "song" and len(command.split(" ")) > 2:
             song_name = command.split(" ", 2)[2]
-            song_index = search_songs(command)
+            song_index = search_song(command)
             if song_index is not None:
                 play_by_index(song_index)
             else:
