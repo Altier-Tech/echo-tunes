@@ -55,7 +55,7 @@ for i, song in enumerate(songs, start=0):
             audiofile = eyed3.load(os.path.join(songs_dir, song))
             artist = audiofile.tag.artist
             album = audiofile.tag.album
-            # TODO
+            add_song(filename, i)
             playlist.insert('', 'end', values=(i, filename, artist, album))
         except Exception as e:
             print(f"Error loading file {song}: {e}")
