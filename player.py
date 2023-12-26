@@ -48,11 +48,14 @@ songs = os.listdir(songs_dir)
 for i, song in enumerate(songs, start=1):
     filename, extension = os.path.splitext(song)
     if extension == '.mp3':
-        audiofile = eyed3.load(os.path.join(songs_dir, song))
-        artist = audiofile.tag.artist
-        album = audiofile.tag.album
-        playlist.insert('', 'end', values=(i, filename, artist, album))
-
+        try:
+            audiofile = eyed3.load(os.path.join(songs_dir, song))
+            artist = audiofile.tag.artist
+            album = audiofile.tag.album
+            playlist.insert('', 'end', values=(i, filename, artist, album))
+        except Exception as e:
+            print(f"Error loading file {song}: {e}")
+            
 
 # Define player control functions
 def play_song():
