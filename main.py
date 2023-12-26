@@ -1,6 +1,4 @@
 import os
-import speech_recognition as sr
-
 
 # Function to launch script
 def launch_script():
