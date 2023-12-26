@@ -9,6 +9,8 @@ import pygame
 from static import *
 from voice import recognize_speech
 
+eyed3.log.setLevel("ERROR")
+
 # Initialize Pygame and Tkinter
 pygame.mixer.init()
 root = tk.Tk()
@@ -32,7 +34,7 @@ control_frame.place(x=60, y=310, width=590, height=100)
 # Create Treeview with four columns
 columns = ('#1', '#2', '#3', '#4')
 playlist = ttk.Treeview(playlist_frame, columns=columns, show='headings')
-playlist.heading('#1', text='Number')
+playlist.heading('#1', text='#')
 playlist.heading('#2', text='Song')
 playlist.heading('#3', text='Artist')
 playlist.heading('#4', text='Album')
@@ -55,7 +57,7 @@ for i, song in enumerate(songs, start=1):
             playlist.insert('', 'end', values=(i, filename, artist, album))
         except Exception as e:
             print(f"Error loading file {song}: {e}")
-            
+
 
 # Define player control functions
 def play_song():
