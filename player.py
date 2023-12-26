@@ -6,6 +6,8 @@ from tkinter import END
 
 import pygame
 
+
+
 from static import *
 from voice import recognize_speech
 
