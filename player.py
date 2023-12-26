@@ -9,6 +9,9 @@ import pygame
 from static import *
 from voice import recognize_speech
 
+# Define player control functions
+is_paused = False 
+
 eyed3.log.setLevel("ERROR")
 
 # Initialize Pygame and Tkinter
