@@ -13,16 +13,20 @@ pygame.mixer.init()
 root = tk.Tk()
 root.title("Echo Tunes")
 
+# Set window size and background color
+root.geometry('720x480')
+root.configure(bg='#7E84F7')
+
 # Create frames for playlist and controls
-playlist_frame = tk.Frame(root)
+playlist_frame = tk.Frame(root, bg='#7E84F7')
 playlist_frame.pack(pady=20)
 
-control_frame = tk.Frame(root)
+control_frame = tk.Frame(root, bg='#7E84F7')
 control_frame.pack()
 
 # Create playlist listbox
-playlist = tk.Listbox(playlist_frame, selectmode=tk.SINGLE)
-playlist.pack(fill=tk.BOTH, expand=True)
+playlist = tk.Listbox(playlist_frame, selectmode=tk.SINGLE, bg='#7E84F7')
+playlist.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
 
 # Add songs to playlist
 songs_dir = 'songs'  # replace with your songs directory
@@ -86,30 +90,30 @@ def set_volume(val):
     pygame.mixer.music.set_volume(volume)
 
 
-# Modify volume_scale to call set_volume when the scale is moved
-volume_scale = tk.Scale(root, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume", command=set_volume)
-volume_scale.set(50)  # Set default volume to 50%
-volume_scale.pack()
-
 # Create control buttons
-play_button = tk.Button(control_frame, text="Play", command=play_song)
-play_button.pack(side=tk.LEFT)
-
-pause_button = tk.Button(control_frame, text="Pause", command=pause_song)
-pause_button.pack(side=tk.LEFT)
-
-stop_button = tk.Button(control_frame, text="Stop", command=stop_song)
-stop_button.pack(side=tk.LEFT)
-
-next_button = tk.Button(control_frame, text="Next", command=next_song)
-next_button.pack(side=tk.LEFT)
-
-prev_button = tk.Button(control_frame, text="Previous", command=previous_song)
+prev_button = tk.Button(control_frame, text="Previous", command=previous_song, bg='#7E84F7')
 prev_button.pack(side=tk.LEFT)
 
+stop_button = tk.Button(control_frame, text="Stop", command=stop_song, bg='#7E84F7')
+stop_button.pack(side=tk.LEFT)
+
+play_button = tk.Button(control_frame, text="Play", command=play_song, bg='#7E84F7')
+play_button.pack(side=tk.LEFT)
+
+pause_button = tk.Button(control_frame, text="Pause", command=pause_song, bg='#7E84F7')
+pause_button.pack(side=tk.LEFT)
+
+next_button = tk.Button(control_frame, text="Next", command=next_song, bg='#7E84F7')
+next_button.pack(side=tk.LEFT)
+
 # Create status label and volume control
-status_label = tk.Label(root, text="Status: Idle")
+status_label = tk.Label(root, text="Status: Idle", bg='#7E84F7')
 status_label.pack()
+
+# Modify volume_scale to call set_volume when the scale is moved
+volume_scale = tk.Scale(root, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume", command=set_volume, bg='#7E84F7')
+volume_scale.set(50)  # Set default volume to 50%
+volume_scale.pack()
 
 
 # Function to recognize speech
