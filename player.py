@@ -123,6 +123,9 @@ def recognize_speech():
             return ""
 
 
+
+
+
 # Function to handle voice commands
 def handle_voice_commands():
     while True:
