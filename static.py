@@ -1,0 +1,1 @@
+play_commands = ["play", "start", "go", "begin", "commence", "initiate", "launch", "open", "run", "trigger", "activate",]
