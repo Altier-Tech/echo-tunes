@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import END
 import pygame
 
 # Initialize Pygame and Tkinter
