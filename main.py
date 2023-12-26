@@ -1,5 +1,6 @@
 import os
 
+from static import launch_commands
 from voice import recognize_speech
 
 
