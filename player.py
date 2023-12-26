@@ -12,6 +12,19 @@ root.title("Echo Tunes")
 # Initialize speech recognizer
 r = sr.Recognizer()
 
+# Function to recognize speech
+def recognize_speech():
+    with sr.Microphone() as source:
+        print("Listening...")
+        audio = r.listen(source)
+        try:
+            text = r.recognize_google(audio)
+            print(f"You said: {text}")
+            return text
+        except:
+            print("Sorry, I did not get that")
+            return ""
+
 # Create frames for playlist and controls
 playlist_frame = tk.Frame(root)
 playlist_frame.pack(pady=20)
