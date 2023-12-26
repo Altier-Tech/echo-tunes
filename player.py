@@ -10,9 +10,11 @@ import pygame
 from static import *
 from voice import recognize_speech
 
+customtkinter.set_appearance_mode('dark')
+
 # Initialize Pygame and Tkinter
 pygame.mixer.init()
-root = tk.Tk()
+root = customtkinter.CTk()
 root.title("Echo Tunes")
 
 # Set window size and background color
