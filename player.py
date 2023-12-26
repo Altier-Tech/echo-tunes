@@ -208,6 +208,7 @@ def handle_voice_commands():
             song_name = command.split(" ", 2)[2]
             song_index = search_song(command)
             if song_index is not None:
+                print("Playing song " + ": " + song_name
                 play_by_index(song_index)
             else:
                 print("Song not found: " + song_name)
