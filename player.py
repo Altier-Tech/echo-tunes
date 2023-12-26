@@ -204,6 +204,7 @@ def handle_voice_commands():
             current_volume = volume_scale.get()
             new_volume = current_volume - 10 if current_volume - 10 > 0 else 0
             volume_scale.set(new_volume)
+        
         else:
             print("Command not recognized: " + command)
 
