@@ -24,9 +24,11 @@ root.configure(bg='#7E84F7')
 title_label = tk.Label(root, text="Echo Tunes", bg='#7E84F7', font=("Helvetica", 16))
 title_label.place(x=0, y=10, width=720, height=50)
 
-# Create frames for playlist and controls
-playlist_frame = tk.Frame(root, bg='#7E84F7')
-playlist_frame.place(x=60, y=85, width=590, height=225)
+# # Create frames for playlist and controls
+# playlist_frame = tk.Frame(root, bg='#7E84F7')
+# playlist_frame.place(x=60, y=85, width=590, height=225)
+
+
 
 control_frame = tk.Frame(root, bg='#7E84F7')
 control_frame.place(x=60, y=310, width=590, height=100)
