@@ -59,21 +59,27 @@ for i, song in enumerate(songs, start=0):
         except Exception as e:
             print(f"Error loading file {song}: {e}")
 
-
 # Define player control functions
-is_paused = False 
+is_paused = False
+
 
 # Define player control functions
 def play_song():
-    current_selection = playlist.selection()
-    if current_selection:  # if a song is selected
-        song = playlist.item(current_selection[0])['values'][1]
-    else:  # if no song is selected, default to the first song
-        song = playlist.item(playlist.get_children()[0])['values'][1]
-    song_path = os.path.join(songs_dir, song + '.mp3')
-    pygame.mixer.music.load(song_path)
-    pygame.mixer.music.play()
-    status_label.config(text="Status: Playing")
+    global is_paused  # Add this line to access the global variable
+    if is_paused:  # If the song is paused
+        pygame.mixer.music.unpause()  # Unpause the song
+        status_label.config(text="Status: Playing")
+        is_paused = False  # Update the is_paused status
+    else:
+        current_selection = playlist.selection()
+        if current_selection:  # if a song is selected
+            song = playlist.item(current_selection[0])['values'][1]
+        else:  # if no song is selected, default to the first song
+            song = playlist.item(playlist.get_children()[0])['values'][1]
+        song_path = os.path.join(songs_dir, song + '.mp3')
+        pygame.mixer.music.load(song_path)
+        pygame.mixer.music.play()
+        status_label.config(text="Status: Playing")
 
 
 def next_song():
@@ -99,8 +105,10 @@ def previous_song():
 
 
 def pause_song():
+    global is_paused  # Add this line to access the global variable
     pygame.mixer.music.pause()
     status_label.config(text="Status: Paused")
+    is_paused = True  # Update the is_paused status
 
 
 def stop_song():
