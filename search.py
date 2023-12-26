@@ -10,6 +10,7 @@ def search_songs(search_term):
 
     search_term_words = search_term.split(" ")
     search_term_words = [word for word in search_term_words if word != "the"]
+    search_term_words = [word for word in search_term_words if word != "song"]
     search_term_words = [word for word in search_term_words if word != "play"]
 
     for song in songs_dict.keys():
