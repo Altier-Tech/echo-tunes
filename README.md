@@ -20,3 +20,5 @@ operation is desired. Additionally, searching for specific audio tracks within
 a large local library can be time-consuming and challenging. This project 
 addresses these issues by providing a hands-free solution for music playback 
 control and efficient audio searching, ultimately enhancing user satisfaction.
+
+
