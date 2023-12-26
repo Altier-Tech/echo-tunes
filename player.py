@@ -152,7 +152,7 @@ def handle_voice_commands():
         if exit_flag:
             break
         command = recognize_speech()
-        if command == 'play song':
+        if command in play_commands:
             play_song()
         elif command == 'pause song':
             pause_song()
