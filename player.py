@@ -126,6 +126,8 @@ def recognize_speech():
 # Function to handle voice commands
 def handle_voice_commands():
     while True:
+        if exit_flag:
+            break
         command = recognize_speech()
         if command == 'play song':
             play_song()
