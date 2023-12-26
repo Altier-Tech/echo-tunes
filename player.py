@@ -161,6 +161,7 @@ def handle_voice_commands():
             next_song()
         elif command in previous_song_commands:
             previous_song()
+        elif command in volume_up_commands:
 
 
 # Start voice command handler in a separate thread
