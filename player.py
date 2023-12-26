@@ -61,6 +61,9 @@ for i, song in enumerate(songs, start=0):
 
 
 # Define player control functions
+is_paused = False 
+
+# Define player control functions
 def play_song():
     current_selection = playlist.selection()
     if current_selection:  # if a song is selected
