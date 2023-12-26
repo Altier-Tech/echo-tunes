@@ -2,7 +2,7 @@ songs_dict = {}
 
 
 def add_song(title: str, index: int):
-    songs_dict[index] = title
+    songs_dict[title] = index
 
 
 def search_song(search_term):
