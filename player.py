@@ -36,7 +36,7 @@ for song in songs:
 
 # Define player control functions
 def play_song():
-    song = playlist.get(tk.ACTIVE)
+    song = playlist.get(playlist.curselection()[0])
     pygame.mixer.music.load(song)
     pygame.mixer.music.play()
     status_label.config(text="Status: Playing")
