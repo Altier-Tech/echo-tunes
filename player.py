@@ -28,7 +28,14 @@ title_label.place(x=0, y=10, width=720, height=50)
 # playlist_frame = tk.Frame(root, bg='#7E84F7')
 # playlist_frame.place(x=60, y=85, width=590, height=225)
 
-
+# Create Treeview with four columns
+columns = ('#1', '#2', '#3', '#4')
+playlist = ttk.Treeview(root, columns=columns, show='headings')
+playlist.heading('#1', text='Number')
+playlist.heading('#2', text='Song')
+playlist.heading('#3', text='Artist')
+playlist.heading('#4', text='Album')
+playlist.pack(fill=tk.BOTH, expand=True)
 
 control_frame = tk.Frame(root, bg='#7E84F7')
 control_frame.place(x=60, y=310, width=590, height=100)
