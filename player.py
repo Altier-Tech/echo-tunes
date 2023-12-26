@@ -4,11 +4,6 @@ from tkinter import END
 import pygame
 import speech_recognition as sr
 
-# Initialize Pygame and Tkinter
-pygame.mixer.init()
-root = tk.Tk()
-root.title("Echo Tunes")
-
 # Initialize speech recognizer
 r = sr.Recognizer()
 
@@ -24,6 +19,11 @@ def recognize_speech():
         except:
             print("Sorry, I did not get that")
             return ""
+
+# Initialize Pygame and Tkinter
+pygame.mixer.init()
+root = tk.Tk()
+root.title("Echo Tunes")
 
 # Create frames for playlist and controls
 playlist_frame = tk.Frame(root)
