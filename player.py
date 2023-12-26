@@ -36,7 +36,11 @@ for song in songs:
 
 # Define player control functions
 def play_song():
-    song = playlist.get(playlist.curselection()[0])
+    current_selection = playlist.curselection()
+    if current_selection:  # if a song is selected
+        song = playlist.get(current_selection[0])
+    else:  # if no song is selected, default to the first song
+        song = playlist.get(0)
     pygame.mixer.music.load(song)
     pygame.mixer.music.play()
     status_label.config(text="Status: Playing")
@@ -74,6 +78,9 @@ def previous_song():
     playlist.select_clear(current_index)
     playlist.select_set(prev_index)
     play_song()
+
+
+
 
 
 # Create control buttons
