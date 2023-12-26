@@ -205,7 +205,6 @@ def handle_voice_commands():
             new_volume = current_volume - 10 if current_volume - 10 > 0 else 0
             volume_scale.set(new_volume)
         elif command.split(" ")[0] == "play" and command.split(" ")[1] == "song" and len(command.split(" ")) > 2:
-            song_name = command.split(" ", 2)[2]
             song_index = search_songs(song_name)
             if song_index is not None:
                 play_by_index(song_index)
