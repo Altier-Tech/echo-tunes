@@ -6,6 +6,8 @@ from tkinter import END
 
 import pygame
 
+from voice import recognize_speech
+
 # Initialize Pygame and Tkinter
 pygame.mixer.init()
 root = tk.Tk()
