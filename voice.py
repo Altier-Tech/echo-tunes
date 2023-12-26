@@ -7,6 +7,7 @@ r = sr.Recognizer()
 # Function to recognize speech
 def recognize_speech():
     with sr.Microphone() as source:
+        print("Listening...")
         audio = r.listen(source)
         try:
             text = r.recognize_google(audio)
