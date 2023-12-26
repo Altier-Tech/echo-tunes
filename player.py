@@ -115,10 +115,10 @@ next_button = tk.Button(control_frame, text="Next", command=next_song, bg='#7E84
 next_button.pack(side=tk.LEFT)
 
 # Modify volume_scale to call set_volume when the scale is moved
-volume_scale = tk.Scale(control_frame, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume", command=set_volume, bg='#7E84F7')
+volume_scale = tk.Scale(control_frame, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume", command=set_volume,
+                        bg='#7E84F7')
 volume_scale.set(50)  # Set default volume to 50%
 volume_scale.pack(side=tk.RIGHT)
-
 
 
 def on_exit():
