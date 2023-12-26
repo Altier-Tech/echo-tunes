@@ -120,17 +120,6 @@ volume_scale.set(50)  # Set default volume to 50%
 volume_scale.pack(side=tk.RIGHT)
 
 
-# Function to recognize speech
-def recognize_speech():
-    with sr.Microphone() as source:
-        audio = r.listen(source)
-        try:
-            text = r.recognize_google(audio)
-            print(text)
-            return text.lower()
-        except:
-            return ""
-
 
 def on_exit():
     # Stop the song if it's playing
