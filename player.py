@@ -6,6 +6,7 @@ from tkinter import ttk
 import eyed3
 import pygame
 
+from search import add_song
 from static import *
 from voice import recognize_speech
 
