@@ -1,12 +1,10 @@
 import os
 import threading
-
 import tkinter as tk
-from tkinter import END, ttk
-
-import pygame
+from tkinter import ttk
 
 import eyed3
+import pygame
 
 from static import *
 from voice import recognize_speech
@@ -51,23 +49,48 @@ status_label.place(x=0, y=460, width=720, height=20)
 # Add songs to playlist
 songs_dir = 'songs'  # replace with your songs directory
 songs = os.listdir(songs_dir)
-for song in songs:
+for i, song in enumerate(songs, start=1):
     filename, extension = os.path.splitext(song)
     if extension == '.mp3':
-        playlist.insert(END, filename)
+        audiofile = eyed3.load(os.path.join(songs_dir, song))
+        artist = audiofile.tag.artist
+        album = audiofile.tag.album
+        playlist.insert('', 'end', values=(i, filename, artist, album))
 
 
 # Define player control functions
 def play_song():
-    current_selection = playlist.curselection()
+    current_selection = playlist.selection()
     if current_selection:  # if a song is selected
-        song = playlist.get(current_selection[0])
+        song = playlist.item(current_selection[0])['values'][1]
     else:  # if no song is selected, default to the first song
-        song = playlist.get(0)
+        song = playlist.item(playlist.get_children()[0])['values'][1]
     song_path = os.path.join(songs_dir, song + '.mp3')
     pygame.mixer.music.load(song_path)
     pygame.mixer.music.play()
     status_label.config(text="Status: Playing")
+
+
+def next_song():
+    current_selection = playlist.selection()
+    if current_selection:  # if a song is selected
+        current_index = playlist.get_children().index(current_selection[0])
+    else:  # if no song is selected, default to the first song
+        current_index = 0
+    next_index = current_index + 1 if current_index + 1 < len(playlist.get_children()) else 0
+    playlist.selection_set(playlist.get_children()[next_index])
+    play_song()
+
+
+def previous_song():
+    current_selection = playlist.selection()
+    if current_selection:  # if a song is selected
+        current_index = playlist.get_children().index(current_selection[0])
+    else:  # if no song is selected, default to the first song
+        current_index = 0
+    prev_index = current_index - 1 if current_index > 0 else len(playlist.get_children()) - 1
+    playlist.selection_set(playlist.get_children()[prev_index])
+    play_song()
 
 
 def pause_song():
@@ -78,30 +101,6 @@ def pause_song():
 def stop_song():
     pygame.mixer.music.stop()
     status_label.config(text="Status: Stopped")
-
-
-def next_song():
-    current_selection = playlist.curselection()
-    if current_selection:  # if a song is selected
-        current_index = current_selection[0]
-    else:  # if no song is selected, default to the first song
-        current_index = 0
-    next_index = current_index + 1 if current_index + 1 < playlist.size() else 0
-    playlist.select_clear(current_index)
-    playlist.select_set(next_index)
-    play_song()
-
-
-def previous_song():
-    current_selection = playlist.curselection()
-    if current_selection:  # if a song is selected
-        current_index = current_selection[0]
-    else:  # if no song is selected, default to the first song
-        current_index = 0
-    prev_index = current_index - 1 if current_index > 0 else playlist.size() - 1
-    playlist.select_clear(current_index)
-    playlist.select_set(prev_index)
-    play_song()
 
 
 # Define volume control function
