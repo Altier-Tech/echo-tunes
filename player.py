@@ -23,9 +23,10 @@ playlist.pack(fill=tk.BOTH, expand=True)
 songs_dir = 'songs'  # replace with your songs directory
 songs = os.listdir(songs_dir)
 for song in songs:
-    song_path = os.path.join(songs_dir, song)
-    playlist.insert(END, song_path)
-
+    filename, extension = os.path.splitext(song)
+    if extension == '.mp3':
+        song_path = os.path.join(songs_dir, song)
+        playlist.insert(END, song_path)
 
 # Define player control functions
 def play_song():
@@ -44,7 +45,6 @@ def pause_song():
 def stop_song():
     pygame.mixer.music.stop()
     status_label.config(text="Status: Stopped")
-
 
 # Create control buttons
 play_button = tk.Button(control_frame, text="Play", command=play_song)
