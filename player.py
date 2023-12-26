@@ -9,6 +9,9 @@ pygame.mixer.init()
 root = tk.Tk()
 root.title("Echo Tunes")
 
+# Initialize speech recognizer
+r = sr.Recognizer()
+
 # Create frames for playlist and controls
 playlist_frame = tk.Frame(root)
 playlist_frame.pack(pady=20)
