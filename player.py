@@ -24,24 +24,24 @@ root.configure(bg='#7E84F7')
 title_label = tk.Label(root, text="Echo Tunes", bg='#7E84F7', font=("Helvetica", 16))
 title_label.place(x=0, y=10, width=720, height=50)
 
-# # Create frames for playlist and controls
-# playlist_frame = tk.Frame(root, bg='#7E84F7')
-# playlist_frame.place(x=60, y=85, width=590, height=225)
-
-# Create Treeview with four columns
-columns = ('#1', '#2', '#3', '#4')
-playlist = ttk.Treeview(root, columns=columns, show='headings')
-playlist.heading('#1', text='Number')
-playlist.heading('#2', text='Song')
-playlist.heading('#3', text='Artist')
-playlist.heading('#4', text='Album')
-playlist.pack(fill=tk.BOTH, expand=True)
+# Create frames for playlist and controls
+playlist_frame = tk.Frame(root, bg='#7E84F7')
+playlist_frame.place(x=60, y=85, width=590, height=225)
 
 control_frame = tk.Frame(root, bg='#7E84F7')
 control_frame.place(x=60, y=310, width=590, height=100)
 
-# Create playlist listbox
-playlist = tk.Listbox(playlist_frame, selectmode=tk.SINGLE, bg='#7E84F7')
+# # Create playlist listbox
+# playlist = tk.Listbox(playlist_frame, selectmode=tk.SINGLE, bg='#7E84F7')
+# playlist.pack(fill=tk.BOTH, expand=True)
+
+# Create Treeview with four columns
+columns = ('#1', '#2', '#3', '#4')
+playlist = ttk.Treeview(playlist_frame, columns=columns, show='headings')
+playlist.heading('#1', text='Number')
+playlist.heading('#2', text='Song')
+playlist.heading('#3', text='Artist')
+playlist.heading('#4', text='Album')
 playlist.pack(fill=tk.BOTH, expand=True)
 
 # Create status label and volume control
