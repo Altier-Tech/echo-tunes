@@ -137,6 +137,9 @@ def on_exit():
     # Destroy the tkinter window
     root.destroy()
 
+    # Force terminate the Python script
+    os._exit(0)
+
 
 # Set the flag to False initially
 exit_flag = False
