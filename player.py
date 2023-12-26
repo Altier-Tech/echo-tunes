@@ -6,7 +6,7 @@ from tkinter import END
 
 import pygame
 
-
+eyed3
 
 from static import *
 from voice import recognize_speech
