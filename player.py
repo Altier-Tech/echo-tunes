@@ -83,11 +83,11 @@ def play_song():
 
 
 def play_by_index(index):
-        song = playlist.item(playlist.get_children()[index])['values'][1]
-        song_path = os.path.join(songs_dir, song + '.mp3')
-        pygame.mixer.music.load(song_path)
-        pygame.mixer.music.play()
-        status_label.config(text="Status: Playing")
+    song = playlist.item(playlist.get_children()[index])['values'][1]
+    song_path = os.path.join(songs_dir, song + '.mp3')
+    pygame.mixer.music.load(song_path)
+    pygame.mixer.music.play()
+    status_label.config(text="Status: Playing")
 
 
 def next_song():
