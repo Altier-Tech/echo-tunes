@@ -2,7 +2,7 @@ import os
 import threading
 
 import tkinter as tk
-from tkinter import END
+from tkinter import END, ttk
 
 import pygame
 
