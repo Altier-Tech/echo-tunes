@@ -21,7 +21,7 @@ a large local library can be time-consuming and challenging. This project
 addresses these issues by providing a hands-free solution for music playback 
 control and efficient audio searching, ultimately enhancing user satisfaction.
 
-Tools & Techniques :
+Tools & Techniques 
  Python for programming voice recognition and control logic.
  Speech recognition libraries such as CMU Sphinx for voice recognition.
  Integration with a music player application.
