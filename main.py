@@ -11,6 +11,7 @@ def recognize_speech():
         audio = r.listen(source)
         try:
             text = r.recognize_google(audio)
+            print(text)
             return text.lower()
         except:
             return ""
