@@ -5,7 +5,7 @@ def add_song(title, index):
     songs_dict[index] = title
 
 
-def search_songs(search_term):
+def search_song(search_term):
     search_term = search_term.lower()
 
     search_term_words = search_term.split(" ")
