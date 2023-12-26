@@ -11,5 +11,5 @@ def launch_script():
 # Main loop
 while True:
     command = recognize_speech()
-    if command == 'launch music player':
+    if command in launch_commands:
         launch_script()
