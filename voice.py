@@ -3,6 +3,7 @@ import speech_recognition as sr
 # Initialize recognizer
 r = sr.Recognizer()
 
+
 # Function to recognize speech
 def recognize_speech():
     with sr.Microphone() as source:
