@@ -33,6 +33,7 @@ for song in songs:
         song_path = os.path.join(songs_dir, song)
         playlist.insert(END, song_path)
 
+
 # Define player control functions
 def play_song():
     song = playlist.get(tk.ACTIVE)
@@ -40,13 +41,16 @@ def play_song():
     pygame.mixer.music.play()
     status_label.config(text="Status: Playing")
 
+
 def pause_song():
     pygame.mixer.music.pause()
     status_label.config(text="Status: Paused")
 
+
 def stop_song():
     pygame.mixer.music.stop()
     status_label.config(text="Status: Stopped")
+
 
 def next_song():
     current_selection = playlist.curselection()
@@ -59,6 +63,7 @@ def next_song():
     playlist.select_set(next_index)
     play_song()
 
+
 def previous_song():
     current_selection = playlist.curselection()
     if current_selection:  # if a song is selected
@@ -69,6 +74,7 @@ def previous_song():
     playlist.select_clear(current_index)
     playlist.select_set(prev_index)
     play_song()
+
 
 # Create control buttons
 play_button = tk.Button(control_frame, text="Play", command=play_song)
@@ -94,6 +100,7 @@ volume_scale = tk.Scale(root, from_=0, to=100, orient=tk.HORIZONTAL, label="Volu
 volume_scale.set(50)  # Set default volume to 50%
 volume_scale.pack()
 
+
 # Function to recognize speech
 def recognize_speech():
     with sr.Microphone() as source:
@@ -103,6 +110,7 @@ def recognize_speech():
             return text.lower()
         except:
             return ""
+
 
 # Function to handle voice commands
 def handle_voice_commands():
@@ -116,6 +124,7 @@ def handle_voice_commands():
             next_song()
         elif command == 'previous song':
             previous_song()
+
 
 # Start voice command handler in a separate thread
 voice_thread = threading.Thread(target=handle_voice_commands)
