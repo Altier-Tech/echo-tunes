@@ -131,7 +131,9 @@ def play_song():
             song = playlist.item(current_selection[0])['values'][1]
         else:  # if no song is selected, default to the first song
             song = playlist.item(playlist.get_children()[0])['values'][1]
-        song_path = os.path.join(songs_dir, song + '.mp3')
+        # Get the selected playlist
+        selected_playlist = playlists[playlists_listbox.curselection()[0]]
+        song_path = os.path.join(selected_playlist, song + '.mp3')
         pygame.mixer.music.load(song_path)
         pygame.mixer.music.play()
         status_label.config(text="Status: Playing")
