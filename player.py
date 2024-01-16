@@ -78,6 +78,16 @@ def add_playlist():
     update_playlists()
 
 
+# Function to update the playlists list box
+def update_playlists():
+    # Clear the list box
+    playlists_listbox.delete(0, tk.END)
+    # Add each playlist to the list box
+    for playlist in playlists:
+        playlists_listbox.insert(tk.END, os.path.basename(playlist))
+
+
+
 # Define player control functions
 def play_song():
     global is_paused  # Add this line to access the global variable
