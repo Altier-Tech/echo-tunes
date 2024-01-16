@@ -2,6 +2,7 @@ import os
 import threading
 import tkinter as tk
 from tkinter import ttk
+from tkinter import filedialog, Listbox
 
 import eyed3
 import pygame
