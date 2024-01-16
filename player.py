@@ -87,6 +87,27 @@ def update_playlists():
         playlists_listbox.insert(tk.END, os.path.basename(playlist))
 
 
+# Function to update the songs list when a playlist is selected
+def update_songs(evt):
+    # Get the selected playlist
+    playlist = playlists[playlists_listbox.curselection()[0]]
+    # Clear the songs list
+    playlist.delete(*playlist.get_children())
+    # Add songs from the selected playlist
+    songs = os.listdir(playlist)
+    for i, song in enumerate(songs, start=1):
+        filename, extension = os.path.splitext(song)
+        if extension == '.mp3':
+            try:
+                audiofile = eyed3.load(os.path.join(playlist, song))
+                artist = audiofile.tag.artist
+                album = audiofile.tag.album
+                add_song(filename, i)
+                playlist.insert('', 'end', values=(i, filename, artist, album))
+            except Exception as e:
+                print(f"Error loading file {song}: {e}")
+
+
 
 # Define player control functions
 def play_song():
