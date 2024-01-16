@@ -68,6 +68,16 @@ for i, song in enumerate(songs, start=0):
 is_paused = False
 
 
+# Function to add a playlist
+def add_playlist():
+    # Open a directory chooser dialog
+    directory = filedialog.askdirectory()
+    # Add the selected directory to the playlists list
+    playlists.append(directory)
+    # Update the playlists list box
+    update_playlists()
+
+
 # Define player control functions
 def play_song():
     global is_paused  # Add this line to access the global variable
