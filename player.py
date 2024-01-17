@@ -114,7 +114,7 @@ add_playlist_button.pack(side=tk.LEFT)
 
 # Create a list box for displaying playlists
 playlists_listbox = Listbox(root, bg='#7E84F7')
-playlists_listbox.place(x=60, y=60, width=590, height=25)
+playlists_listbox.place(x=60, y=60, width=590, height=50)
 playlists_listbox.bind('<<ListboxSelect>>', update_songs)
 
 
