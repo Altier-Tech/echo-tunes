@@ -21,7 +21,7 @@ root = tk.Tk()
 root.title("Echo Tunes")
 
 # Set window size and background color
-root.geometry('720x480')
+root.geometry('720x600')
 root.configure(bg='#7E84F7')
 
 # Create title label
