@@ -92,10 +92,14 @@ playlists = load_playlists()
 def add_playlist():
     # Open a directory chooser dialog
     directory = filedialog.askdirectory()
-    # Add the selected directory to the playlists list
-    playlists.append(directory)
-    # Update the playlists list box
-    update_playlists()
+    # Check if the selected directory is already in the playlists list
+    if directory not in playlists:
+        # Add the selected directory to the playlists list
+        playlists.append(directory)
+        # Update the playlists list box
+        update_playlists()
+    else:
+        print("This directory is already in the playlists.")
 
 
 # Function to update the playlists list box
