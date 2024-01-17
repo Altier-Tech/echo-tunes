@@ -95,7 +95,9 @@ def add_playlist():
 add_playlist_button = tk.Button(playlist_control_frame, text="Add Playlist", command=add_playlist, bg='#7E84F7')
 add_playlist_button.pack(side=tk.LEFT)
 
-
+# Create a button for deleting playlists
+delete_playlist_button = tk.Button(playlist_control_frame, text="Delete Playlist", command=delete_playlist, bg='#7E84F7')
+delete_playlist_button.pack(side=tk.LEFT)
 
 # Create a list box for displaying playlists
 playlists_listbox = Listbox(root, bg='white')
