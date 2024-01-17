@@ -71,6 +71,9 @@ for i, song in enumerate(songs, start=0):
 is_paused = False
 
 
+
+
+
 # Function to add a playlist
 def add_playlist():
     # Open a directory chooser dialog
