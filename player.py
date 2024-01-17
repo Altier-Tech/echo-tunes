@@ -132,7 +132,18 @@ def load_playlists():
         return []
 
 
-
+# Function to delete a playlist
+def delete_playlist():
+    # Check if a playlist is selected
+    if playlists_listbox.curselection():
+        # Get the selected playlist
+        selected_playlist = playlists[playlists_listbox.curselection()[0]]
+        # Remove the selected playlist from the playlists list
+        playlists.remove(selected_playlist)
+        # Update the playlists list box
+        update_playlists()
+    else:
+        print("No playlist selected.")
 
 
 # Function to update the playlists list box
