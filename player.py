@@ -1,7 +1,11 @@
 import os
 import threading
+
 import tkinter as tk
 from tkinter import ttk
+from tkinter import filedialog, Listbox
+
+import pickle
 
 import eyed3
 import pygame
@@ -12,13 +16,15 @@ from voice import recognize_speech
 
 eyed3.log.setLevel("ERROR")
 
+playlists = []
+
 # Initialize Pygame and Tkinter
 pygame.mixer.init()
 root = tk.Tk()
 root.title("Echo Tunes")
 
 # Set window size and background color
-root.geometry('720x480')
+root.geometry('720x600')
 root.configure(bg='#7E84F7')
 
 # Create title label
@@ -27,10 +33,13 @@ title_label.place(x=0, y=10, width=720, height=50)
 
 # Create frames for playlist and controls
 playlist_frame = tk.Frame(root, bg='#7E84F7')
-playlist_frame.place(x=60, y=85, width=590, height=225)
+playlist_frame.place(x=60, y=185, width=590, height=225)
+
+playlist_control_frame = tk.Frame(root, bg='#7E84F7')
+playlist_control_frame.place(x=60, y=145, width=590, height=40)
 
 control_frame = tk.Frame(root, bg='#7E84F7')
-control_frame.place(x=60, y=310, width=590, height=100)
+control_frame.place(x=60, y=410, width=590, height=100)
 
 # Create Treeview with four columns
 columns = ('#1', '#2', '#3', '#4')
@@ -39,12 +48,57 @@ playlist.heading('#1', text='#')
 playlist.heading('#2', text='Song')
 playlist.heading('#3', text='Artist')
 playlist.heading('#4', text='Album')
-playlist.column('#1', width=40)  # Adjust the width as needed
+playlist.column('#1', width=40)
 playlist.pack(fill=tk.BOTH, expand=True)
 
 # Create status label and volume control
 status_label = tk.Label(root, text="Status: Idle", bg='#7E84F7')
-status_label.place(x=0, y=460, width=720, height=20)
+status_label.place(x=0, y=560, width=720, height=20)
+
+
+# Function to update the songs list when a playlist is selected
+def update_songs(evt):
+    # Get the selected playlist
+    selected_playlist = playlists[playlists_listbox.curselection()[0]]
+    # Clear the songs list
+    playlist.delete(*playlist.get_children())
+    # Add songs from the selected playlist
+    songs = os.listdir(selected_playlist)
+    for i, song in enumerate(songs, start=1):
+        filename, extension = os.path.splitext(song)
+        if extension == '.mp3':
+            try:
+                audiofile = eyed3.load(os.path.join(selected_playlist, song))
+                artist = audiofile.tag.artist
+                album = audiofile.tag.album
+                add_song(filename, i)
+                playlist.insert('', 'end', values=(i, filename, artist, album))
+            except Exception as e:
+                print(f"Error loading file {song}: {e}")
+
+
+# Function to add a playlist
+def add_playlist():
+    # Open a directory chooser dialog
+    directory = filedialog.askdirectory()
+    # Check if the selected directory is already in the playlists list
+    if directory not in playlists:
+        # Add the selected directory to the playlists list
+        playlists.append(directory)
+        # Update the playlists list box
+        update_playlists()
+    else:
+        print("This directory is already in the playlists.")
+
+
+# Create a button for adding playlists
+add_playlist_button = tk.Button(playlist_control_frame, text="Add Playlist", command=add_playlist, bg='#7E84F7')
+add_playlist_button.pack(side=tk.LEFT)
+
+# Create a list box for displaying playlists
+playlists_listbox = Listbox(root, bg='white')
+playlists_listbox.place(x=60, y=60, width=590, height=80)  # Adjusted height
+playlists_listbox.bind('<<ListboxSelect>>', update_songs)
 
 # Add songs to playlist
 songs_dir = 'songs'  # replace with your songs directory
@@ -65,6 +119,64 @@ for i, song in enumerate(songs, start=0):
 is_paused = False
 
 
+def save_playlists():
+    with open('playlists.pkl', 'wb') as f:
+        pickle.dump(playlists, f)
+
+
+def load_playlists():
+    try:
+        with open('playlists.pkl', 'rb') as f:
+            return pickle.load(f)
+    except FileNotFoundError:
+        return []
+
+
+# Function to delete a playlist
+def delete_playlist():
+    # Check if a playlist is selected
+    if playlists_listbox.curselection():
+        # Get the selected playlist
+        selected_playlist = playlists[playlists_listbox.curselection()[0]]
+        # Remove the selected playlist from the playlists list
+        playlists.remove(selected_playlist)
+        # Update the playlists list box
+        update_playlists()
+    else:
+        print("No playlist selected.")
+
+
+# Create a button for deleting playlists
+delete_playlist_button = tk.Button(playlist_control_frame, text="Delete Playlist", command=delete_playlist,
+                                   bg='#7E84F7')
+delete_playlist_button.pack(side=tk.LEFT)
+
+
+# Function to update the playlists list box
+def update_playlists():
+    # Clear the list box
+    playlists_listbox.delete(0, tk.END)
+    # Add each playlist to the list box
+    for i, playlist in enumerate(playlists, start=1):
+        playlists_listbox.insert(tk.END, f"{i}. {os.path.basename(playlist)}")
+
+
+# Load playlists at the start of the program
+playlists = load_playlists()
+
+# Update the playlists list box
+update_playlists()
+
+
+# Function to update the playlists list box
+def update_playlists():
+    # Clear the list box
+    playlists_listbox.delete(0, tk.END)
+    # Add each playlist to the list box
+    for playlist in playlists:
+        playlists_listbox.insert(tk.END, os.path.basename(playlist))
+
+
 # Define player control functions
 def play_song():
     global is_paused  # Add this line to access the global variable
@@ -78,7 +190,9 @@ def play_song():
             song = playlist.item(current_selection[0])['values'][1]
         else:  # if no song is selected, default to the first song
             song = playlist.item(playlist.get_children()[0])['values'][1]
-        song_path = os.path.join(songs_dir, song + '.mp3')
+        # Get the selected playlist
+        selected_playlist = playlists[playlists_listbox.curselection()[0]]
+        song_path = os.path.join(selected_playlist, song + '.mp3')
         pygame.mixer.music.load(song_path)
         pygame.mixer.music.play()
         status_label.config(text="Status: Playing")
@@ -156,6 +270,9 @@ volume_scale.pack(side=tk.RIGHT)
 
 
 def on_exit():
+    # Save playlists when the application is closed
+    save_playlists()
+
     # Stop the song if it's playing
     pygame.mixer.music.stop()
 
