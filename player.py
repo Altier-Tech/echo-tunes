@@ -50,7 +50,7 @@ playlist.pack(fill=tk.BOTH, expand=True)
 
 # Create status label and volume control
 status_label = tk.Label(root, text="Status: Idle", bg='#7E84F7')
-status_label.place(x=0, y=560, width=720, height=20)  
+status_label.place(x=0, y=560, width=720, height=20)
 
 
 # Function to update the songs list when a playlist is selected
@@ -93,7 +93,7 @@ add_playlist_button = tk.Button(control_frame, text="Add Playlist", command=add_
 add_playlist_button.pack(side=tk.LEFT)
 
 # Create a list box for displaying playlists
-playlists_listbox = Listbox(root, bg='#7E84F7')
+playlists_listbox = Listbox(root, bg='white')
 playlists_listbox.place(x=60, y=60, width=590, height=120)
 playlists_listbox.bind('<<ListboxSelect>>', update_songs)
 
