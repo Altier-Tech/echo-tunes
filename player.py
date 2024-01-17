@@ -4,6 +4,8 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog, Listbox
 
+import pickle
+
 import eyed3
 import pygame
 
