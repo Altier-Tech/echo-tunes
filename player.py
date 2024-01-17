@@ -84,6 +84,10 @@ def load_playlists():
         return []
 
 
+# Load playlists at the start of the program
+playlists = load_playlists()
+
+
 # Function to add a playlist
 def add_playlist():
     # Open a directory chooser dialog
