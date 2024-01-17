@@ -146,9 +146,9 @@ def delete_playlist():
         print("No playlist selected.")
 
 
-
 # Create a button for deleting playlists
-delete_playlist_button = tk.Button(playlist_control_frame, text="Delete Playlist", command=delete_playlist, bg='#7E84F7')
+delete_playlist_button = tk.Button(playlist_control_frame, text="Delete Playlist", command=delete_playlist,
+                                   bg='#7E84F7')
 delete_playlist_button.pack(side=tk.LEFT)
 
 
