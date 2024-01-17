@@ -33,7 +33,7 @@ title_label.place(x=0, y=10, width=720, height=50)
 
 # Create frames for playlist and controls
 playlist_frame = tk.Frame(root, bg='#7E84F7')
-playlist_frame.place(x=60, y=185, width=590, height=225)  
+playlist_frame.place(x=60, y=185, width=590, height=225)
 
 control_frame = tk.Frame(root, bg='#7E84F7')
 control_frame.place(x=60, y=410, width=590, height=100)
