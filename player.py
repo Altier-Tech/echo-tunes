@@ -92,6 +92,7 @@ def update_playlists():
     for playlist in playlists:
         playlists_listbox.insert(tk.END, os.path.basename(playlist))
 
+
 # Load playlists at the start of the program
 playlists = load_playlists()
 
