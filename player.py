@@ -231,6 +231,9 @@ volume_scale.pack(side=tk.RIGHT)
 
 
 def on_exit():
+    # Save playlists when the application is closed
+    save_playlists()
+
     # Stop the song if it's playing
     pygame.mixer.music.stop()
 
