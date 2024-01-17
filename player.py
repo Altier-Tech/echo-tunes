@@ -95,10 +95,6 @@ def add_playlist():
 add_playlist_button = tk.Button(playlist_control_frame, text="Add Playlist", command=add_playlist, bg='#7E84F7')
 add_playlist_button.pack(side=tk.LEFT)
 
-# Create a button for deleting playlists
-delete_playlist_button = tk.Button(playlist_control_frame, text="Delete Playlist", command=delete_playlist, bg='#7E84F7')
-delete_playlist_button.pack(side=tk.LEFT)
-
 # Create a list box for displaying playlists
 playlists_listbox = Listbox(root, bg='white')
 playlists_listbox.place(x=60, y=60, width=590, height=80)  # Adjusted height
@@ -148,6 +144,12 @@ def delete_playlist():
         update_playlists()
     else:
         print("No playlist selected.")
+
+
+
+# Create a button for deleting playlists
+delete_playlist_button = tk.Button(playlist_control_frame, text="Delete Playlist", command=delete_playlist, bg='#7E84F7')
+delete_playlist_button.pack(side=tk.LEFT)
 
 
 # Function to update the playlists list box
