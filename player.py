@@ -35,6 +35,9 @@ title_label.place(x=0, y=10, width=720, height=50)
 playlist_frame = tk.Frame(root, bg='#7E84F7')
 playlist_frame.place(x=60, y=185, width=590, height=225)
 
+playlist_control_frame = tk.Frame(root, bg='#7E84F7')
+playlist_control_frame.place(x=60, y=145, width=590, height=40)
+
 control_frame = tk.Frame(root, bg='#7E84F7')
 control_frame.place(x=60, y=410, width=590, height=100)
 
@@ -45,7 +48,7 @@ playlist.heading('#1', text='#')
 playlist.heading('#2', text='Song')
 playlist.heading('#3', text='Artist')
 playlist.heading('#4', text='Album')
-playlist.column('#1', width=40)  # Adjust the width as needed
+playlist.column('#1', width=40)  
 playlist.pack(fill=tk.BOTH, expand=True)
 
 # Create status label and volume control
@@ -89,12 +92,12 @@ def add_playlist():
 
 
 # Create a button for adding playlists
-add_playlist_button = tk.Button(control_frame, text="Add Playlist", command=add_playlist, bg='#7E84F7')
+add_playlist_button = tk.Button(playlist_control_frame, text="Add Playlist", command=add_playlist, bg='#7E84F7')
 add_playlist_button.pack(side=tk.LEFT)
 
 # Create a list box for displaying playlists
 playlists_listbox = Listbox(root, bg='white')
-playlists_listbox.place(x=60, y=60, width=590, height=120)
+playlists_listbox.place(x=60, y=60, width=590, height=80)  # Adjusted height
 playlists_listbox.bind('<<ListboxSelect>>', update_songs)
 
 # Add songs to playlist
@@ -136,7 +139,7 @@ def update_playlists():
     # Add each playlist to the list box
     for i, playlist in enumerate(playlists, start=1):
         playlists_listbox.insert(tk.END, f"{i}. {os.path.basename(playlist)}")
-        
+
 
 # Load playlists at the start of the program
 playlists = load_playlists()
