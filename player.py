@@ -132,6 +132,9 @@ def load_playlists():
         return []
 
 
+
+
+
 # Function to update the playlists list box
 def update_playlists():
     # Clear the list box
