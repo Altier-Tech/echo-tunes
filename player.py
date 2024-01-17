@@ -84,8 +84,19 @@ def load_playlists():
         return []
 
 
+# Function to update the playlists list box
+def update_playlists():
+    # Clear the list box
+    playlists_listbox.delete(0, tk.END)
+    # Add each playlist to the list box
+    for playlist in playlists:
+        playlists_listbox.insert(tk.END, os.path.basename(playlist))
+
 # Load playlists at the start of the program
 playlists = load_playlists()
+
+# Update the playlists list box
+update_playlists()
 
 
 # Function to add a playlist
