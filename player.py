@@ -75,6 +75,7 @@ def save_playlists():
     with open('playlists.pkl', 'wb') as f:
         pickle.dump(playlists, f)
 
+
 def load_playlists():
     try:
         with open('playlists.pkl', 'rb') as f:
