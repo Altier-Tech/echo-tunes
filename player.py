@@ -134,9 +134,9 @@ def update_playlists():
     # Clear the list box
     playlists_listbox.delete(0, tk.END)
     # Add each playlist to the list box
-    for playlist in playlists:
-        playlists_listbox.insert(tk.END, os.path.basename(playlist))
-
+    for i, playlist in enumerate(playlists, start=1):
+        playlists_listbox.insert(tk.END, f"{i}. {os.path.basename(playlist)}")
+        
 
 # Load playlists at the start of the program
 playlists = load_playlists()
