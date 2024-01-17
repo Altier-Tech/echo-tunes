@@ -71,7 +71,16 @@ for i, song in enumerate(songs, start=0):
 is_paused = False
 
 
+def save_playlists():
+    with open('playlists.pkl', 'wb') as f:
+        pickle.dump(playlists, f)
 
+def load_playlists():
+    try:
+        with open('playlists.pkl', 'rb') as f:
+            return pickle.load(f)
+    except FileNotFoundError:
+        return []
 
 
 # Function to add a playlist
