@@ -91,6 +91,13 @@ def add_playlist():
         print("This directory is already in the playlists.")
 
 
+def search_playlist(playlist_name):
+    for i, playlist in enumerate(playlists, start=1):
+        if playlist_name.lower() in os.path.basename(playlist).lower():
+            return i - 1  # return the index of the playlist
+    return None  # return None if no match is found
+
+
 # Create a button for adding playlists
 add_playlist_button = tk.Button(playlist_control_frame, text="Add Playlist", command=add_playlist, bg='#7E84F7')
 add_playlist_button.pack(side=tk.LEFT)
