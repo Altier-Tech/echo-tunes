@@ -320,7 +320,8 @@ def handle_voice_commands():
             previous_song()
         elif command in stop_commands:
             stop_song()
-        
+        elif command in pause_commands:
+            pause_song()
         elif command in volume_up_commands:
             current_volume = volume_scale.get()
             new_volume = current_volume + 10 if current_volume + 10 < 100 else 100
