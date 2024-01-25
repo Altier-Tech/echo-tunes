@@ -6,7 +6,7 @@ def add_song(title: str, index: int):
 
 
 def search_song(search_term):
-    search_term = search_term.lower()
+    search_term = search_term.lower().replace('&', '')
 
     search_term_words = search_term.split(" ")
     search_term_words = [word for word in search_term_words if word != "the"]
@@ -16,6 +16,7 @@ def search_song(search_term):
     print(songs_dict)
 
     for song in songs_dict.keys():
+        song = song.replace('&', '')
         print(song + " <> ", search_term_words)
         song_words = song.split(" ")
         song_words = [word for word in song_words if word != "the"]
