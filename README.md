@@ -53,7 +53,7 @@ control and efficient audio searching, ultimately enhancing user satisfaction.
 9. Say "Play Song <Song Name>" to search for a song
 10. Say "Volume Up" to increase the volume
 11. Say "Volume Down" to decrease the volume
-10. Say "Exit" to close the application
+12. Say "Exit" to close the application
 
 ## Contributing
 
