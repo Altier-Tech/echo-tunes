@@ -289,7 +289,6 @@ pause_button = tk.Button(control_frame, image=pause_icon, command=pause_song, bg
 pause_button.pack(side=tk.LEFT)
 
 # next button
-# Load and resize the next icon
 img = Image.open('icons/next.png')  # replace 'next.png' with your image file
 img = img.resize((50, 50), Image.LANCZOS)  # replace '50, 50' with your desired size
 next_icon = ImageTk.PhotoImage(img)
