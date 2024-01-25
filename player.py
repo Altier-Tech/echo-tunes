@@ -272,6 +272,13 @@ previous_icon = ImageTk.PhotoImage(img)
 prev_button = tk.Button(control_frame, image=previous_icon, command=previous_song, bg='#7E84F7', compound=tk.CENTER)
 prev_button.pack(side=tk.LEFT)
 
+# pause button
+img = Image.open('icons/pause.png')
+img = img.resize((50, 50), Image.LANCZOS)
+pause_icon = ImageTk.PhotoImage(img)
+pause_button = tk.Button(control_frame, image=pause_icon, command=pause_song, bg='#7E84F7', compound=tk.CENTER)
+pause_button.pack(side=tk.LEFT)
+
 # play button
 img = Image.open('icons/play.png')
 img = img.resize((50, 50), Image.LANCZOS)
