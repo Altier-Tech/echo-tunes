@@ -185,7 +185,7 @@ def update_playlists():
 
 # Define player control functions
 def play_song():
-    global is_paused  # Add this line to access the global variable
+    global is_paused 
     if is_paused:  # If the song is paused
         pygame.mixer.music.unpause()  # Unpause the song
         status_label.config(text="Status: Playing")
