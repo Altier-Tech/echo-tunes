@@ -289,6 +289,14 @@ pause_button = tk.Button(control_frame, image=pause_icon, command=pause_song, bg
 pause_button.pack(side=tk.LEFT)
 
 # next button
+# Load and resize the next icon
+img = Image.open('icons/next.png')  # replace 'next.png' with your image file
+img = img.resize((50, 50), Image.LANCZOS)  # replace '50, 50' with your desired size
+next_icon = ImageTk.PhotoImage(img)
+
+# Set the next icon to the next button
+next_button = tk.Button(control_frame, image=next_icon, command=next_song, bg='#7E84F7', compound=tk.CENTER)
+next_button.pack(side=tk.LEFT)
 
 # Modify volume_scale to call set_volume when the scale is moved
 volume_scale = tk.Scale(control_frame, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume", command=set_volume,
