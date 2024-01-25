@@ -356,7 +356,7 @@ def handle_voice_commands():
                 print("Playing song ", song_index, ": ", song_name)
                 play_by_index(song_index)
                 current_song = song_name  # Update the current_song variable
-                songs = [item['values'][1] for item in playlist.get_children()]  # Update the songs list
+                songs = [playlist.item(item)['values'][1] for item in playlist.get_children()]  # Update the songs list
             else:
                 print("Song not found: " + song_name)
         else:
