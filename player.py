@@ -1,18 +1,16 @@
 import os
-import threading
-
-import tkinter as tk
-from tkinter import ttk
-from tkinter import filedialog, Listbox
-
 import pickle
+import threading
+import tkinter as tk
+from tkinter import filedialog, Listbox
+from tkinter import ttk
 
 import eyed3
 import pygame
 
 from search import add_song, search_song
 from static import *
-from voice import recognize_speech, parse_voice_command
+from voice import parse_voice_command
 
 eyed3.log.setLevel("ERROR")
 
