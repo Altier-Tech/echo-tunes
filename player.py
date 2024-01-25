@@ -52,7 +52,8 @@ playlist.heading('#4', text='Album')
 playlist.column('#1', width=40)
 playlist.pack(fill=tk.BOTH, expand=True)
 
-
+voice_command_label = tk.Label(root, text="Voice Command: Idle", bg='#7E84F7')
+voice_command_label.place(x=0, y=580, width=720, height=20)
 
 # Create status label and volume control
 status_label = tk.Label(root, text="Status: Idle", bg='#7E84F7')
