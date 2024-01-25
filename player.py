@@ -271,6 +271,7 @@ img = img.resize((50, 50), Image.LANCZOS)
 previous_icon = ImageTk.PhotoImage(img)
 prev_button = tk.Button(control_frame, image=previous_icon, command=previous_song, bg='#7E84F7', compound=tk.CENTER)
 prev_button.pack(side=tk.LEFT)
+prev_button.pack(side=tk.LEFT, padx=5, pady=5)
 
 # pause button
 img = Image.open('icons/pause.png')
