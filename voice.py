@@ -17,4 +17,5 @@ def recognize_speech():
             return ""
 
 
-
+def parse_voice_command(command: str) -> str:
+    pass
