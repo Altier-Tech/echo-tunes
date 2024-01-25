@@ -265,7 +265,6 @@ def set_volume(val):
     pygame.mixer.music.set_volume(volume)
 
 
-
 # stop button
 img = Image.open('icons/stop.png')
 img = img.resize((50, 50), Image.LANCZOS)
