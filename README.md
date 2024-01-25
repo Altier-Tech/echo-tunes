@@ -45,7 +45,7 @@ control and efficient audio searching, ultimately enhancing user satisfaction.
     pip install -r requirements.txt
     ```
 3. Run the application
-4. Say "Echo Tunes" to open the application
+4. Say "Launch Music Player" to open the application
 5. Say "Play" to start playing music
 6. Say "Stop" to stop playing music
 7. Say "Next Song" to play the next song
