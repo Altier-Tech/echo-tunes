@@ -279,6 +279,8 @@ play_icon = ImageTk.PhotoImage(img)
 play_button = tk.Button(control_frame, image=play_icon, command=play_song, bg='#7E84F7', compound=tk.CENTER)
 play_button.pack(side=tk.LEFT)
 
+
+
 # Modify volume_scale to call set_volume when the scale is moved
 volume_scale = tk.Scale(control_frame, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume", command=set_volume,
                         bg='#7E84F7')
