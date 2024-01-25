@@ -46,6 +46,7 @@ control and efficient audio searching, ultimately enhancing user satisfaction.
     ```
 3. Run the application
 4. Say "Echo Tunes" to open the application
+5. Say "Play" to start playing music
 
 ## Contributing
 
