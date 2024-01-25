@@ -273,7 +273,7 @@ stop_button = tk.Button(control_frame, text="Stop", command=stop_song, bg='#7E84
 stop_button.pack(side=tk.LEFT)
 
 # Open the image file
-img = Image.open('icons/play.png')  # replace 'play_icon.png' with your image file
+img = Image.open('icons/play.png')  
 img = img.resize((50, 50), Image.LANCZOS)  # replace '50, 50' with your desired size
 # Convert the image to PhotoImage
 play_icon = ImageTk.PhotoImage(img)
