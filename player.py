@@ -6,6 +6,8 @@ import tkinter as tk
 from tkinter import filedialog, Listbox
 from tkinter import ttk
 
+from PIL import Image, ImageTk
+
 import eyed3
 import pygame
 
