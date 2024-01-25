@@ -23,4 +23,3 @@ def parse_voice_command() -> str:
         return ""
     else:
         return com
-
