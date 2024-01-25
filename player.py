@@ -205,6 +205,7 @@ def play_song():
 
 
 def play_by_index(index):
+    global current_song
     # Get the selected playlist
     selected_playlist = playlists[playlists_listbox.curselection()[0]]
     song = playlist.item(playlist.get_children()[index])['values'][1]
@@ -212,6 +213,7 @@ def play_by_index(index):
     pygame.mixer.music.load(song_path)
     pygame.mixer.music.play()
     status_label.config(text="Status: Playing")
+    current_song = song
 
 
 def next_song():
@@ -312,6 +314,7 @@ root.protocol("WM_DELETE_WINDOW", on_exit)
 
 # Function to handle voice commands
 def handle_voice_commands():
+    global current_song
     while True:
         if exit_flag:
             break
@@ -351,6 +354,7 @@ def handle_voice_commands():
             if song_index is not None:
                 print("Playing song ", i, ": ", song_name)
                 play_by_index(song_index)
+                current_song = song_name  # Update the current_song variable
             else:
                 print("Song not found: " + song_name)
         else:
