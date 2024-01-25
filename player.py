@@ -269,6 +269,8 @@ prev_button.pack(side=tk.LEFT)
 stop_button = tk.Button(control_frame, text="Stop", command=stop_song, bg='#7E84F7')
 stop_button.pack(side=tk.LEFT)
 
+play_icon = tk.PhotoImage(file='play_icon.png')  # replace 'play_icon.png' with your image file
+play_icon = play_icon.subsample(2, 2)  # adjust the numbers to get your desired size
 play_button = tk.Button(control_frame, image=play_icon, command=play_song, bg='#7E84F7', compound=tk.CENTER)
 play_button.pack(side=tk.LEFT)
 
