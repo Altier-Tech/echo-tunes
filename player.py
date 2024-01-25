@@ -288,7 +288,7 @@ pause_icon = ImageTk.PhotoImage(img)
 pause_button = tk.Button(control_frame, image=pause_icon, command=pause_song, bg='#7E84F7', compound=tk.CENTER)
 pause_button.pack(side=tk.LEFT)
 
-
+# next button
 
 # Modify volume_scale to call set_volume when the scale is moved
 volume_scale = tk.Scale(control_frame, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume", command=set_volume,
