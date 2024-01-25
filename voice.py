@@ -18,4 +18,5 @@ def recognize_speech():
 
 
 def parse_voice_command(command: str) -> str:
-    pass
+    com = recognize_speech()
+    
