@@ -287,14 +287,14 @@ pause_button = tk.Button(control_frame, image=pause_icon, command=pause_song, bg
 pause_button.pack(side=tk.LEFT)
 
 # next button
-img = Image.open('icons/next.png') 
+img = Image.open('icons/next.png')
 img = img.resize((50, 50), Image.LANCZOS)  # replace '50, 50' with your desired size
 next_icon = ImageTk.PhotoImage(img)
 next_button = tk.Button(control_frame, image=next_icon, command=next_song, bg='#7E84F7', compound=tk.CENTER)
 next_button.pack(side=tk.LEFT)
 
 # previous button
-img = Image.open('icons/previous.png')  # replace 'previous.png' with your image file
+img = Image.open('icons/previous.png')
 img = img.resize((50, 50), Image.LANCZOS)  # replace '50, 50' with your desired size
 previous_icon = ImageTk.PhotoImage(img)
 prev_button = tk.Button(control_frame, image=previous_icon, command=previous_song, bg='#7E84F7', compound=tk.CENTER)
