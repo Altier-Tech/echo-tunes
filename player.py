@@ -264,7 +264,6 @@ def set_volume(val):
 
 play_icon = tk.PhotoImage(file='icons/play.png')
 
-
 # Create control buttons
 prev_button = tk.Button(control_frame, text="Previous", command=previous_song, bg='#7E84F7')
 prev_button.pack(side=tk.LEFT)
