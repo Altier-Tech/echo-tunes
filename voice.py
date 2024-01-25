@@ -17,6 +17,10 @@ def recognize_speech():
             return ""
 
 
-def parse_voice_command(command: str) -> str:
+def parse_voice_command() -> str:
     com = recognize_speech()
+    if com == "":
+        return ""
+    else:
+        return com
 
