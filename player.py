@@ -271,7 +271,7 @@ prev_button.pack(side=tk.LEFT)
 stop_button = tk.Button(control_frame, text="Stop", command=stop_song, bg='#7E84F7')
 stop_button.pack(side=tk.LEFT)
 
-play_button = tk.Button(control_frame, text="Play", command=play_song, bg='#7E84F7')
+play_button = tk.Button(control_frame, image=play_icon, command=play_song, bg='#7E84F7', compound=tk.CENTER)
 play_button.pack(side=tk.LEFT)
 
 pause_button = tk.Button(control_frame, text="Pause", command=pause_song, bg='#7E84F7')
