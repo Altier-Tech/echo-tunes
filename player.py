@@ -348,8 +348,13 @@ def handle_voice_commands():
     while True:
         if exit_flag:
             break
+            
         command = parse_voice_command()
-        voice_command_label.config(text=f"Voice Command: {command}")
+        if command == "":
+            voice_command_label.config(text="Voice Command: Listening...")
+        else:
+            voice_command_label.config(text=f"Voice Command: {command}")
+
         if command in play_commands:
             play_song()
         elif command in stop_commands:
