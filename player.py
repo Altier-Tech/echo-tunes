@@ -205,7 +205,7 @@ def play_song():
 
 
 def play_by_index(index):
-    global current_song
+    global current_song, songs
     # Get the selected playlist
     selected_playlist = playlists[playlists_listbox.curselection()[0]]
     song = playlist.item(playlist.get_children()[index])['values'][1]
@@ -214,6 +214,7 @@ def play_by_index(index):
     pygame.mixer.music.play()
     status_label.config(text="Status: Playing")
     current_song = song
+    songs = os.listdir(selected_playlist) 
 
 
 def next_song():
