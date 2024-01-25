@@ -36,6 +36,10 @@ control and efficient audio searching, ultimately enhancing user satisfaction.
 
 ### Installation
 
+1. Clone the repository
+   ```sh
+   git clone
+
 ## Contributing
 
 If you'd like to contribute to this project, please check the contribution guidelines for more information.
