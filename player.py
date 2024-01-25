@@ -275,7 +275,6 @@ stop_button.pack(side=tk.LEFT)
 
 img = Image.open('icons/play.png')
 img = img.resize((50, 50), Image.LANCZOS)
-# Convert the image to PhotoImage
 play_icon = ImageTk.PhotoImage(img)
 play_button = tk.Button(control_frame, image=play_icon, command=play_song, bg='#7E84F7', compound=tk.CENTER)
 play_button.pack(side=tk.LEFT)
