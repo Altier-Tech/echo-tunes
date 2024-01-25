@@ -48,6 +48,7 @@ control and efficient audio searching, ultimately enhancing user satisfaction.
 4. Say "Echo Tunes" to open the application
 5. Say "Play" to start playing music
 6. Say "Stop" to stop playing music
+7. Say "Next" to play the next song
 
 ## Contributing
 
