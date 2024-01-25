@@ -311,7 +311,7 @@ next_button.pack(side=tk.LEFT, padx=5, pady=5)
 # Modify volume_scale to call set_volume when the scale is moved
 volume_scale = tk.Scale(control_frame, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume", command=set_volume,
                         bg='#7E84F7')
-volume_scale.set(40)  # Set default volume to 50%
+volume_scale.set(40)  # Set default volume to 40%
 volume_scale.pack(side=tk.RIGHT)
 
 
