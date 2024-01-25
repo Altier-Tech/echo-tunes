@@ -32,6 +32,8 @@ control and efficient audio searching, ultimately enhancing user satisfaction.
 - Development of a custom audio search algorithm.
 - User interface design using a Tkinter
 
+
+
 ## Contributing
 
 If you'd like to contribute to this project, please check the contribution guidelines for more information.
