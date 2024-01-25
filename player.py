@@ -265,6 +265,13 @@ def set_volume(val):
     pygame.mixer.music.set_volume(volume)
 
 
+# previous button
+img = Image.open('icons/previous.png')
+img = img.resize((50, 50), Image.LANCZOS)
+previous_icon = ImageTk.PhotoImage(img)
+prev_button = tk.Button(control_frame, image=previous_icon, command=previous_song, bg='#7E84F7', compound=tk.CENTER)
+prev_button.pack(side=tk.LEFT)
+
 # stop button
 img = Image.open('icons/stop.png')
 img = img.resize((50, 50), Image.LANCZOS)
@@ -292,13 +299,6 @@ img = img.resize((50, 50), Image.LANCZOS)
 next_icon = ImageTk.PhotoImage(img)
 next_button = tk.Button(control_frame, image=next_icon, command=next_song, bg='#7E84F7', compound=tk.CENTER)
 next_button.pack(side=tk.LEFT)
-
-# previous button
-img = Image.open('icons/previous.png')
-img = img.resize((50, 50), Image.LANCZOS)
-previous_icon = ImageTk.PhotoImage(img)
-prev_button = tk.Button(control_frame, image=previous_icon, command=previous_song, bg='#7E84F7', compound=tk.CENTER)
-prev_button.pack(side=tk.LEFT)
 
 # Modify volume_scale to call set_volume when the scale is moved
 volume_scale = tk.Scale(control_frame, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume", command=set_volume,
