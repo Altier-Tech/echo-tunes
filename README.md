@@ -38,7 +38,8 @@ control and efficient audio searching, ultimately enhancing user satisfaction.
 
 1. Clone the repository
    ```sh
-   git clone
+   git clone https://github.com/Altier-Tech/echo-tunes.git
+   ```
 
 ## Contributing
 
