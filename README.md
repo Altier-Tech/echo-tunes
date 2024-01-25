@@ -40,6 +40,8 @@ control and efficient audio searching, ultimately enhancing user satisfaction.
    ```sh
    git clone https://github.com/Altier-Tech/echo-tunes.git
    ```
+2. Install the required packages
+   ```sh
 
 ## Contributing
 
