@@ -44,6 +44,7 @@ control and efficient audio searching, ultimately enhancing user satisfaction.
    ```sh
     pip install -r requirements.txt
     ```
+3. Run the application
 
 ## Contributing
 
