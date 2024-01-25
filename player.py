@@ -269,7 +269,7 @@ def set_volume(val):
 prev_button = tk.Button(control_frame, text="Previous", command=previous_song, bg='#7E84F7')
 prev_button.pack(side=tk.LEFT)
 
-# Load and resize the stop icon
+# 
 img = Image.open('icons/stop.png')  # replace 'stop.png' with your image file
 img = img.resize((50, 50), Image.LANCZOS)  # replace '50, 50' with your desired size
 stop_icon = ImageTk.PhotoImage(img)
