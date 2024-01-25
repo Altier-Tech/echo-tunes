@@ -45,6 +45,7 @@ control and efficient audio searching, ultimately enhancing user satisfaction.
     pip install -r requirements.txt
     ```
 3. Run the application
+4. Say "Echo Tunes" to open the application
 
 ## Contributing
 
