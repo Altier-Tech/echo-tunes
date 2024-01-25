@@ -185,7 +185,7 @@ def update_playlists():
 
 # Define player control functions
 def play_song():
-    global is_paused, current_song 
+    global is_paused, current_song
     if is_paused:  # If the song is paused
         pygame.mixer.music.unpause()  # Unpause the song
         status_label.config(text="Status: Playing")
@@ -215,14 +215,17 @@ def play_by_index(index):
 
 
 def next_song():
+    global current_song
     current_selection = playlist.selection()
     if current_selection:  # if a song is selected
         current_index = playlist.get_children().index(current_selection[0])
         next_index = current_index + 1 if current_index + 1 < len(playlist.get_children()) else 0
     else:  # if no song is selected, default to the next song of the currently playing song
-        current_song = pygame.mixer.music.get_busy()
-        current_index = songs.index(current_song)
-        next_index = current_index + 1 if current_index + 1 < len(songs) else 0
+        if current_song:  # check if current_song is not False
+            current_index = songs.index(current_song)
+            next_index = current_index + 1 if current_index + 1 < len(songs) else 0
+        else:  # if current_song is False, default to the first song
+            next_index = 0
     playlist.selection_set(playlist.get_children()[next_index])
     play_song()
 
