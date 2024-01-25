@@ -122,6 +122,7 @@ for i, song in enumerate(songs, start=0):
 
 # Define player control functions
 is_paused = False
+current_song = None
 
 
 def save_playlists():
@@ -217,9 +218,11 @@ def next_song():
     current_selection = playlist.selection()
     if current_selection:  # if a song is selected
         current_index = playlist.get_children().index(current_selection[0])
-    else:  # if no song is selected, default to the first song
-        current_index = 0
-    next_index = current_index + 1 if current_index + 1 < len(playlist.get_children()) else 0
+        next_index = current_index + 1 if current_index + 1 < len(playlist.get_children()) else 0
+    else:  # if no song is selected, default to the next song of the currently playing song
+        current_song = pygame.mixer.music.get_busy()
+        current_index = songs.index(current_song)
+        next_index = current_index + 1 if current_index + 1 < len(songs) else 0
     playlist.selection_set(playlist.get_children()[next_index])
     play_song()
 
