@@ -299,6 +299,7 @@ next_button.pack(side=tk.LEFT)
 
 # previous button
 
+
 # Modify volume_scale to call set_volume when the scale is moved
 volume_scale = tk.Scale(control_frame, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume", command=set_volume,
                         bg='#7E84F7')
