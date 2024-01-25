@@ -278,7 +278,6 @@ img = Image.open('icons/play.png')  # replace 'play_icon.png' with your image fi
 img = img.resize((50, 50), Image.ANTIALIAS)  # replace '50, 50' with your desired size
 # Convert the image to PhotoImage
 play_icon = ImageTk.PhotoImage(img)
-
 play_button = tk.Button(control_frame, image=play_icon, command=play_song, bg='#7E84F7', compound=tk.CENTER)
 play_button.pack(side=tk.LEFT)
 
