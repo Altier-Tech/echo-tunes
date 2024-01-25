@@ -298,7 +298,6 @@ next_button = tk.Button(control_frame, image=next_icon, command=next_song, bg='#
 next_button.pack(side=tk.LEFT)
 
 # previous button
-# Load and resize the previous icon
 img = Image.open('icons/previous.png')  # replace 'previous.png' with your image file
 img = img.resize((50, 50), Image.LANCZOS)  # replace '50, 50' with your desired size
 previous_icon = ImageTk.PhotoImage(img)
