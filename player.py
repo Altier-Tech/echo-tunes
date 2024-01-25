@@ -280,7 +280,7 @@ play_button = tk.Button(control_frame, image=play_icon, command=play_song, bg='#
 play_button.pack(side=tk.LEFT)
 
 # pause button
-img = Image.open('icons/pause.png')  # replace 'pause.png' with your image file
+img = Image.open('icons/pause.png')  
 img = img.resize((50, 50), Image.LANCZOS)  # replace '50, 50' with your desired size
 pause_icon = ImageTk.PhotoImage(img)
 pause_button = tk.Button(control_frame, image=pause_icon, command=pause_song, bg='#7E84F7', compound=tk.CENTER)
