@@ -265,9 +265,6 @@ def set_volume(val):
     pygame.mixer.music.set_volume(volume)
 
 
-# Create control buttons
-prev_button = tk.Button(control_frame, text="Previous", command=previous_song, bg='#7E84F7')
-prev_button.pack(side=tk.LEFT)
 
 # stop button
 img = Image.open('icons/stop.png')
