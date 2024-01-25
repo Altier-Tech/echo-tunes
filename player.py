@@ -280,6 +280,14 @@ play_button = tk.Button(control_frame, image=play_icon, command=play_song, bg='#
 play_button.pack(side=tk.LEFT)
 
 # pause button
+# Load and resize the pause icon
+img = Image.open('icons/pause.png')  # replace 'pause.png' with your image file
+img = img.resize((50, 50), Image.LANCZOS)  # replace '50, 50' with your desired size
+pause_icon = ImageTk.PhotoImage(img)
+
+# Set the pause icon to the pause button
+pause_button = tk.Button(control_frame, image=pause_icon, command=pause_song, bg='#7E84F7', compound=tk.CENTER)
+pause_button.pack(side=tk.LEFT)
 
 # Modify volume_scale to call set_volume when the scale is moved
 volume_scale = tk.Scale(control_frame, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume", command=set_volume,
