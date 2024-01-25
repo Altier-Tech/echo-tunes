@@ -42,6 +42,8 @@ control and efficient audio searching, ultimately enhancing user satisfaction.
    ```
 2. Install the required packages
    ```sh
+    pip install -r requirements.txt
+    ```
 
 ## Contributing
 
