@@ -325,7 +325,6 @@ def on_exit():
     # Stop the voice command listening thread
     if voice_thread.is_alive():
         # Set a flag that will cause the thread to exit
-        # Note: You'll need to check this flag in your `handle_voice_commands` function
         global exit_flag
         exit_flag = True
 
@@ -350,7 +349,7 @@ def handle_voice_commands():
         if exit_flag:
             break
         command = parse_voice_command()
-        voice_command_label.config(text=f"Voice Command: {command}") 
+        voice_command_label.config(text=f"Voice Command: {command}")
         if command in play_commands:
             play_song()
         elif command in stop_commands:
