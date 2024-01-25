@@ -15,3 +15,6 @@ def recognize_speech():
             return text.lower()
         except:
             return ""
+
+
+
