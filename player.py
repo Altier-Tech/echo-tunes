@@ -351,12 +351,12 @@ def handle_voice_commands():
                 print("Playlist not found: " + playlist_name)
         elif command.split(" ")[0] == "play" and command.split(" ")[1] == "song" and len(command.split(" ")) > 2:
             song_name = command.split(" ", 2)[2]
-            song_index = search_song(command)
+            song_index = search_song(song_name)  # search for the song name instead of the whole command
             if song_index is not None:
-                print("Playing song ", i, ": ", song_name)
+                print("Playing song ", song_index, ": ", song_name)
                 play_by_index(song_index)
                 current_song = song_name  # Update the current_song variable
-                songs = os.listdir(playlists[playlists_listbox.curselection()[0]])  # Update the songs list
+                songs = [item['values'][1] for item in playlist.get_children()]  # Update the songs list
             else:
                 print("Song not found: " + song_name)
         else:
