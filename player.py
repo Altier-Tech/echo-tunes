@@ -262,7 +262,7 @@ def set_volume(val):
     pygame.mixer.music.set_volume(volume)
 
 
-play_icon = tk.PhotoImage(file='play_icon.png')  
+play_icon = tk.PhotoImage(file='icons/play.png')
 
 
 # Create control buttons
