@@ -328,6 +328,15 @@ def handle_voice_commands():
             current_volume = volume_scale.get()
             new_volume = current_volume - 10 if current_volume - 10 > 0 else 0
             volume_scale.set(new_volume)
+        elif any(cmd in command for cmd in search_playlist_commands):
+            playlist_name = command.split(" ", 2)[2]
+            playlist_index = search_playlist(playlist_name)
+            if playlist_index is not None:
+                print("Found playlist ", playlist_index, ": ", playlist_name)
+                playlists_listbox.selection_set(playlist_index)
+                update_songs(None)
+            else:
+                print("Playlist not found: " + playlist_name)
         elif command.split(" ")[0] == "play" and command.split(" ")[1] == "song" and len(command.split(" ")) > 2:
             song_name = command.split(" ", 2)[2]
             song_index = search_song(command)
