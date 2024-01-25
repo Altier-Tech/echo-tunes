@@ -32,7 +32,7 @@ control and efficient audio searching, ultimately enhancing user satisfaction.
 - Development of a custom audio search algorithm.
 - User interface design using a Tkinter
 
-
+## Usage
 
 ## Contributing
 
