@@ -12,7 +12,7 @@ import pygame
 
 from search import add_song, search_song
 from static import *
-from voice import recognize_speech
+from voice import recognize_speech, parse_voice_command
 
 eyed3.log.setLevel("ERROR")
 
