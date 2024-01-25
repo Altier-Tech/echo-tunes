@@ -50,7 +50,7 @@ control and efficient audio searching, ultimately enhancing user satisfaction.
 6. Say "Stop" to stop playing music
 7. Say "Next Song" to play the next song
 8. Say "Previous Song" to play the previous song
-9. Say "Search" to search for a song
+9. Say "Play Song <Song Name>" to search for a song
 10. Say "Exit" to close the application
 
 ## Contributing
