@@ -271,7 +271,7 @@ prev_button.pack(side=tk.LEFT)
 
 # stop button
 img = Image.open('icons/stop.png')
-img = img.resize((50, 50), Image.LANCZOS)  # replace '50, 50' with your desired size
+img = img.resize((50, 50), Image.LANCZOS)
 stop_icon = ImageTk.PhotoImage(img)
 stop_button = tk.Button(control_frame, image=stop_icon, command=stop_song, bg='#7E84F7', compound=tk.CENTER)
 stop_button.pack(side=tk.LEFT)
