@@ -303,6 +303,7 @@ img = img.resize((50, 50), Image.LANCZOS)
 next_icon = ImageTk.PhotoImage(img)
 next_button = tk.Button(control_frame, image=next_icon, command=next_song, bg='#7E84F7', compound=tk.CENTER)
 next_button.pack(side=tk.LEFT)
+next_button.pack(side=tk.LEFT, padx=5, pady=5)
 
 # Modify volume_scale to call set_volume when the scale is moved
 volume_scale = tk.Scale(control_frame, from_=0, to=100, orient=tk.HORIZONTAL, label="Volume", command=set_volume,
