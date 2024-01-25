@@ -295,6 +295,7 @@ img = img.resize((50, 50), Image.LANCZOS)
 stop_icon = ImageTk.PhotoImage(img)
 stop_button = tk.Button(control_frame, image=stop_icon, command=stop_song, bg='#7E84F7', compound=tk.CENTER)
 stop_button.pack(side=tk.LEFT)
+stop_button.pack(side=tk.LEFT, padx=5, pady=5)
 
 # next button
 img = Image.open('icons/next.png')
